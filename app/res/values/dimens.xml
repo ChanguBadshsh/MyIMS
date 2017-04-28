@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="navigation_drawer_width">@dimen/_240sdp</dimen>
+    <dimen name="distance_between_markers">@dimen/_1sdp</dimen>
+    <dimen name="title_size">@dimen/_16sdp</dimen>
+    <dimen name="line_spacing">@dimen/_2sdp</dimen>
+
+    <dimen name="fab_size_normal">@dimen/_45sdp</dimen>
+    <dimen name="fab_size_mini">@dimen/_30sdp</dimen>
+    <dimen name="labels_text_size">@dimen/_12sdp</dimen>
+
+    <dimen name="evp_content_inset">@dimen/_14sdp</dimen>
+    <dimen name="evp_content_inset_half">@dimen/_8sdp</dimen>
+    <dimen name="evp_content_inset_less">@dimen/_1sdp</dimen>
+    <dimen name="evp_content_inset_iconbuttons">@dimen/_2sdp</dimen>
+
+    <dimen name="evp_text_size_small">@dimen/_10sdp</dimen>
+
+    <dimen name="evp_button_size">@dimen/_48sdp</dimen>
+    <dimen name="evp_text_size_medium">@dimen/_12sdp</dimen>
+
+    <dimen name="evp_negative_inset_large">@dimen/_minus8sdp</dimen>
+    <dimen name="evp_negative_inset_small">@dimen/_minus2sdp</dimen>
+
+    <dimen name="_0sdp">0.0dp</dimen>
+</resources>

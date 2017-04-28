@@ -1,0 +1,99 @@
+<resources>
+
+    <color name="primaryColor">#651FFF</color>
+    <color name="primaryColorDark">#7C4DFF</color>
+    <color name="accent">#00BCD4</color>
+    <color name="windowBgColor">#e8e8e8</color>
+    <color name="theme_green">#78bf5e</color>
+    <color name="gray_color">#8F94A1</color>
+
+    <color name="textPrimary">#ffffff</color>
+    <color name="textSecondary">#ffffff</color>
+    <color name="defaultTextColor">#1B1B1B</color>
+    <color name="txt_color">#1B1B1B</color>
+    <color name="txt_color_gray">#8F94A1</color>
+    <color name="hint">#73000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="transparancy">#40000000</color>
+    <color name="hrvtransparency">#26000000</color>
+
+    <color name="fabMenu_transparancy">#CCFFFFFF</color>
+
+    <color name="navigation_item_transparency">#80000000</color>
+    <color name="profile_item_transparency">#80000000</color>
+    <color name="album_item_transparency">#80000000</color>
+    <color name="event_item_transparency">#CC000000</color>
+    <color name="group_item_transparency">#CC000000</color>
+    <color name="group_detail_transparency">#80000000</color>
+    <color name="event_detail_transparency">#80000000</color>
+    <color name="video_item_transparency">#80000000</color>
+
+    <color name="messageListGray">#f6f6f6</color>
+    <color name="messageListLightTheme">#2678bf5e</color>
+    <color name="wallContentBox">#f6f6f6</color>
+    <color name="wallOptionsTextColor">#8F94A1</color>
+    <color name="wallOptionsColor">#8B8B8B</color>
+    <color name="notificationListGray">#f6f6f6</color>
+    <color name="friends_option_color">#D3D3D3</color>
+
+    <color name="virtuemart_devider">#393939</color>
+    <color name="virtuemart_offWhite">#FEFEFA</color>
+
+    <color name="itemSelection">#40000000</color>
+    <color name="itemLowSelection">#26000000</color>
+
+    <color name="primary50">#E9F4F6</color>
+    <color name="primary100">#BDDFE4</color>
+    <color name="primary200">#91C9D3</color>
+    <color name="primary300">#6CB7C4</color>
+    <color name="primary400">#47A5B5</color>
+    <color name="primary900">#114A53</color>
+
+    <color name="search_dropdown_bg">@color/primaryColor</color>
+    <color name="search_dropdown_text_color">@color/textSecondary</color>
+
+    <color name="yellow">#ffff00</color>
+    <color name="red">#ff0000</color>
+    <color name="white">#ffffff</color>
+    <color name="blue">#3b5998</color>
+    <color name="green">#319e01</color>
+    <color name="black">#000000</color>
+
+    <color name="dialog_color">#BDDFE4</color>
+    <color name="dialog_transparancy">#40000000</color>
+    <color name="progress_transparancy">#0D000000</color>
+
+    <color name="facebook">#3b5998</color>
+    <color name="facebook_h">#2b448b</color>
+    <color name="google">#dc4e41</color>
+    <color name="google_h">#c53829</color>
+
+    <color name="grey_light">#BDBDBD</color>
+
+    <color name="shadowLight">#33000000</color>
+    <color name="shadowMedium">#73000000</color>
+    <color name="shadowDark">#99000000</color>
+    <array name="blackShadow">
+        <item>#FF000000</item>
+        <item>#F2000000</item>
+        <item>#E6000000</item>
+        <item>#D9000000</item>
+        <item>#CC000000</item>
+        <item>#BF000000</item>
+        <item>#B3000000</item>
+        <item>#A6000000</item>
+        <item>#99000000</item>
+        <item>#8C000000</item>
+        <item>#80000000</item>
+        <item>#73000000</item>
+        <item>#66000000</item>
+        <item>#59000000</item>
+        <item>#4D000000</item>
+        <item>#40000000</item>
+        <item>#33000000</item>
+        <item>#26000000</item>
+        <item>#1A000000</item>
+        <item>#0D000000</item>
+        <item>#00000000</item>
+    </array>
+</resources>

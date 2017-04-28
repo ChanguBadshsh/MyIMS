@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:orientation="vertical">
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:background="@drawable/login_back_three"
+        android:orientation="vertical"
+        android:padding="@dimen/_10sdp">
+
+        <com.smart.customviews.RoundedImageView
+            android:id="@+id/imgUserAvatar"
+            android:src="@color/accent"
+            android:layout_width="@dimen/_85sdp"
+            android:layout_height="@dimen/_85sdp"
+            android:scaleType="centerCrop"
+            app:border_color="@color/white"
+            app:border_width="@dimen/_2sdp"
+            app:corner_radius="@dimen/_360sdp"
+            app:is_oval="false" />
+
+        <com.smart.customviews.SmartTextView
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_gravity="center"
+            android:id="@+id/txtUserName"
+            style="@style/TextViewShadow"
+            android:text="Name User "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_18sdp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</LinearLayout>

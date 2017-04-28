@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/_8sdp">
+
+    <com.smart.customviews.SmartTextView
+        android:id="@+id/txtInputBoxMap"
+        style="@style/textview_h3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:textColor="@color/txt_color_gray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.smart.customviews.SmartEditText
+            android:id="@+id/edtInputBoxMap"
+            style="@style/edittext_h3"
+            android:layout_width="@dimen/_0sdp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:singleLine="true" />
+
+        <ImageView
+            android:id="@+id/imgMap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_4sdp"
+            android:src="@drawable/ic_map_marker_grey600_24dp" />
+
+        <ImageView
+            android:id="@+id/imgPrivacy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_4sdp"
+            android:visibility="gone"
+            android:src="@drawable/ijoomer_privacy_public" />
+    </LinearLayout>
+</LinearLayout>

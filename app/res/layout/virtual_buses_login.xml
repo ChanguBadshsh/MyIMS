@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                 xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                 android:layout_width="match_parent"
+                                                 xmlns:facebook="http://schemas.android.com/tools"
+                                                 android:background="@drawable/login_back_three"
+                                                 android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/_40sdp"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+
+        <com.smart.customviews.RoundedImageView
+            android:id="@+id/picture"
+            android:layout_gravity="center"
+            android:src="@color/primaryColorDark"
+            app:border_color="@android:color/white"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:background="@drawable/login_edit_text_back_one"
+                android:layout_marginTop="20dp"
+                android:padding="15dp"
+                android:hint="User Name "
+                android:textSize="20dp"
+                android:textColorHint="#ffffff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:background="@drawable/login_edit_text_back_one"
+
+                android:layout_marginTop="10dp"
+                android:padding="15dp"
+                android:hint="User Passsword "
+                android:textSize="20dp"
+                android:textColorHint="#ffffff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:background="@drawable/login_edit_text_back_one"
+                    android:layout_marginLeft="@dimen/_2sdp"
+                    android:layout_marginTop="10dp"
+                    android:text="Login"
+                    android:textColor="@android:color/white"
+                    android:textSize="15dp"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+                <Button
+                    android:id="@+id/btnRegister"
+                    android:background="@drawable/login_edit_text_back_one"
+                    android:layout_marginLeft="@dimen/_2sdp"
+                    android:layout_marginTop="10dp"
+                    android:text="REgister"
+                    android:textColor="@android:color/white"
+                    android:textSize="15dp"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <com.facebook.login.widget.LoginButton
+                    android:background="@drawable/login_button_back_one"
+                    android:id="@+id/login_button"
+                    android:padding="@dimen/_5sdp"
+                    android:textColor="@android:color/white"
+                    android:drawableLeft="@drawable/facebook_circular"
+                    android:layout_marginTop="10dp"
+                    android:textSize="15dp"
+                    android:layout_weight="1"
+                    android:text="Facebook"
+                    facebook:login_text="Login"
+                    facebook:logout_text="Logout Tha have"
+                    android:layout_marginRight="@dimen/_2sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <Button
+                    android:id="@+id/btnGoogle"
+                    android:background="@drawable/login_button_back_two"
+                    android:layout_marginLeft="@dimen/_2sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:drawableLeft="@drawable/google_plus_circular"
+                    android:layout_marginTop="10dp"
+                    android:text="Google +"
+                    android:textColor="@android:color/white"
+                    android:textSize="15dp"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

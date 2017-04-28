@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="no_content_found" type="id">No content found</item>
+    <item name="collapsed" type="id"/>
+    <item name="expanded" type="id"/>
+    <item name="no_children" type="id"/>
+    <item name="privacy_options" type="id"/>
+    <item name="privacy_value" type="id"/>
+    <item name="vm_spinner_status" type="id"/>
+    <item name="vm_date_format" type="id"/>
+    <item name="vm_spinner_options" type="id"/>
+    <item name="vm_custom_field" type="id"/>
+    <item name="fab_label" type="id"/>
+    <item name="range_bar" type="id"/>
+</resources>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_15sdp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_1sdp"
+            android:orientation="vertical" >
+
+            <com.smart.customviews.SmartTextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/dialog_title_select_image"
+                android:textStyle="bold" />
+
+            <com.smart.customviews.SmartTextView
+                android:id="@+id/txtCapture"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:gravity="center_vertical"
+                android:padding="@dimen/_5sdp"
+                android:text="@string/capture" />
+
+            <com.smart.customviews.SmartTextView
+                android:id="@+id/txtPhoneGallery"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:gravity="center_vertical"
+                android:padding="@dimen/_5sdp"
+                android:text="@string/gallery" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

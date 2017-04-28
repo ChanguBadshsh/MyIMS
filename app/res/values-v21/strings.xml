@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="jom_profile_friend">Friend</string>
+    <string name="smart_domain_urlsetting">If you have some sub-domain(eg. subdomain.yourdomain.com [1]) or sub-directory(eg. www.yourdomain.com/staging/ [2] ) where Joomla resides, enter accordingly.</string>
+</resources>

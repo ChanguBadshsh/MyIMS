@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/primaryColorDark"
+              android:clickable="true">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_margin="@dimen/_5sdp"
+            android:padding="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgMenuItem"
+                android:src="@drawable/dashboard"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"/>
+
+            <com.smart.customviews.SmartTextView
+                android:id="@+id/txtMenuItem"
+                style="@style/textview_h3"
+                android:layout_width="@dimen/_0sdp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:textColor="@android:color/white"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/_15sdp"
+                android:paddingLeft="@dimen/_16sdp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+        <View
+            android:background="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

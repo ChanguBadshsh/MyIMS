@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="load_component">"Jomsocial"</string>
+    <string name="date_format">yyyy-MM-dd</string>
+    <string name="birth_date_format">dd/MM/yyyy</string>
+    <string name="date_time_format">yyyy-MM-dd kk:mm:ss</string>
+    <string name="event_date_time_format">yyyy-MM-dd hh:mm aa</string>
+    <string name="time_format">kk:mm:ss</string>
+    <string name="facebook_app_id">"649816185219108"</string>
+    <string name="google_maps_key">"AIzaSyCkbBvgZEjwP3RnqcbuGvISfQxpaGDTFRY"</string>
+    <string name="gcm_server_key">AIzaSyCJBvMsE9QxaK2ZwJsbRAXDBxySAV-nEjU</string>
+    <string name="gcm_sender_id">586484478460</string>
+    <!--<string name="virtuemart_payment_link">"http://192.168.5.138/wewe/index.php?option=com_virtuemart&amp;view=cart&amp;lang=en&amp;render=mobile&amp;tmpl=component"</string>-->
+    <!--<string name="virtuemart_payment_link">"https://matiz.websitewelcome.com/~tasolglo/dev/wewe/index.php?option=com_virtuemart&amp;view=cart&amp;lang=en&amp;render=mobile&amp;tmpl=component"</string>-->
+    <string name="virtuemart_payment_link">"https://istage.website/wewe/index.php?option=com_virtuemart&amp;view=cart&amp;lang=en&amp;render=mobile&amp;tmpl=component"</string>
+</resources>

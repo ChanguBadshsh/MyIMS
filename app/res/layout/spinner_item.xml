@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.smart.customviews.SmartTextView xmlns:android="http://schemas.android.com/apk/res/android"
+                                     android:id="@+id/text1"
+                                     style="@style/textview_h3"
+                                     android:layout_width="match_parent"
+                                     android:layout_height="wrap_content"
+                                     android:gravity="center_vertical"
+                                     android:paddingLeft="@dimen/_8sdp"
+                                     android:paddingRight="@dimen/_8sdp"/>

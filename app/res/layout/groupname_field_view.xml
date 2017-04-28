@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/_8sdp"
+    android:orientation="horizontal">
+
+    <com.smart.customviews.SmartTextView
+        android:id="@+id/txtGroupLable"
+        style="@style/textview_white_h3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:background="@color/accent"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/_8sdp"
+        android:textAllCaps="true" />
+</LinearLayout>

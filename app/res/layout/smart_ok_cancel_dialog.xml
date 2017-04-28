@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_15sdp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_1sdp"
+            android:orientation="vertical" >
+
+            <com.smart.customviews.SmartTextView
+                android:id="@+id/txtTitle"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@android:drawable/ic_dialog_info"
+                android:drawablePadding="@dimen/_3sdp"
+                android:gravity="left|center_vertical"
+                android:padding="@dimen/_5sdp"
+                android:text="@string/dialog_title_urlsetting"
+                android:textStyle="bold" />
+
+            <com.smart.customviews.SmartTextView
+                android:id="@+id/txtMessage"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:gravity="center|center_vertical" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_0sdp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="@dimen/_5sdp" >
+
+                <com.smart.customviews.SmartButton
+                    android:id="@+id/btnOk"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:text="@string/yes" />
+
+                <com.smart.customviews.SmartButton
+                    android:id="@+id/btnCancel"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:text="@string/no" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

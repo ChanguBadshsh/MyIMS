@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- App Name -->
+    <string name="app_name">Virtual Buses</string>
+
+    <!-- Server Error Code -->
+    <string name="code108">Bad data in server response.</string>
+    <string name="code599">Connection problem please try again.</string>
+    <string name="code204">There is no data available.</string>
+    <string name="code202">Already uploaded.</string>
+    <string name="code400">Wrong data.</string>
+    <string name="code401">Invalid username or password.</string>
+    <string name="code404">No such request found.</string>
+    <string name="code415">Unsupported file type.</string>
+    <string name="code416">Upload limit exceeded.</string>
+    <string name="code500">Server rrror.</string>
+    <string name="code501">Server error.</string>
+    <string name="code701">Username already exists.</string>
+    <string name="code702">Email already exists.</string>
+    <string name="code703">Facebook user not found.</string>
+    <string name="code704">Session expired.</string>
+    <string name="code705">Permission denied.</string>
+    <string name="code706">Restricted access.</string>
+    <string name="code707">Request already exists.</string>
+    <string name="code708">Awaiting approval.</string>
+
+
+    <!-- Easy Vodeo Player -->
+    <string name="evp_submit">SUBMIT</string>
+    <string name="evp_retry">RETRY</string>
+    <string name="error">Error</string>
+    <string name="jom_profile_friend">Friend</string>
+    <string name="smart_domain_urlsetting">If you have some sub-domain(eg. subdomain.yourdomain.com [1]) or sub-directory(eg. www.yourdomain.com/staging/ [2] ) where Joomla resides, enter accordingly.</string>
+    <string name="select_locaton">Select Location</string>
+    <string name="error_player">There was an error initializing the YouTubePlayer (%1$s)</string>
+    <string name="share_via">Share via</string>
+    <string name="dialog_title_urlsetting">Dialog Title</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="dialog_title_contact">Contact title</string>
+    <string name="select_all">Select All</string>
+    <string name="none">None</string>
+    <string name="done">Done</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="dialog_title_select_image">Image Title</string>
+    <string name="capture">Capture</string>
+    <string name="gallery">Gallery</string>
+    <string name="continues">Contines</string>
+    <string name="create">Create</string>
+    <string name="edit">Edit</string>
+    <string name="next">Next</string>
+    <string name="save">Save</string>
+    <string name="send">Send</string>
+    <string name="send_email">Email</string>
+    <string name="submit">Submit</string>
+    <string name="upload">Upload</string>
+    <string name="navigation_drawer_open">Drawer Open</string>
+    <string name="navigation_drawer_close">Drawer Close</string>
+    <string name="generic_server_down">Server Down</string>
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="generic_error">Generic Error</string>
+    <string name="no_location_data_provided">No Location Data</string>
+    <string name="service_not_available">Service Not available</string>
+    <string name="invalid_lat_long_used">Invalid LatLong</string>
+    <string name="no_address_found">No Address</string>
+    <string name="address_found">Address Found</string>
+    <string name="dialog_loading_please_wait">Please Wait</string>
+    <string name="close">Cloase</string>
+    <string name="select">Select</string>
+    <string name="invalid_untrusted_certificate">Invalid Certificate</string>
+    <string name="you_re_accessing_a_page_with_an_untrusted_or_invalid_certificate_do_you_want_to_continue">Invalid Page</string>
+    <string name="cancel_ssl">Cancel SSl</string>
+    <string name="continue_ssl">Continue SSl</string>
+    <string name="network_not_available">Network Not available</string>
+    <string name="logout">Logout</string>
+    <string name="logout_message">Logout Message</string>
+    <string name="empty_validation">Cant be Empty</string>
+</resources>
