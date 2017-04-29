@@ -119,7 +119,8 @@ public class VirtualBusesLogin extends Activity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent= new Intent(VirtualBusesLogin.this,VirtualBusesRegister.class);
+                startActivity(intent);
             }
         });
 

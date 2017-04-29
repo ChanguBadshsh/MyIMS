@@ -1,125 +1,234 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                                  xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                 android:layout_width="match_parent"
                                                  xmlns:facebook="http://schemas.android.com/tools"
-                                                 android:background="@drawable/login_back_three"
-                                                 android:layout_height="match_parent">
+                                                 android:layout_width="match_parent"
+                                                 android:layout_height="match_parent"
+                                                 android:background="@drawable/login_back_three">
 
-
-    <LinearLayout
-        android:layout_marginTop="@dimen/_40sdp"
-        android:layout_gravity="center"
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical" >
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_height="match_parent">
 
-
-        <com.smart.customviews.RoundedImageView
-            android:id="@+id/picture"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:src="@color/primaryColorDark"
-            app:border_color="@android:color/white"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="@dimen/_100sdp"/>
+            android:layout_marginTop="@dimen/_105sdp"
+            android:orientation="vertical">
 
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_margin="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <com.smart.customviews.SmartEditText
-                android:id="@+id/etEmail"
-                android:padding="15dp"
-                android:hint="Email"
-                android:textSize="20dp"
-                android:textColorHint="#ffffff"
-                android:layout_weight="1"
+            <com.smart.customviews.RoundedImageView
+                android:id="@+id/picture"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_gravity="center"
+                android:src="@color/primaryColorDark"
+                app:border_color="@android:color/white"/>
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <com.smart.customviews.SmartEditText
-                android:id="@+id/etPassword"
-                android:padding="15dp"
-                android:hint="Passsword "
-                android:textSize="20dp"
-                android:textColorHint="#ffffff"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
 
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@android:color/white"
+                    >
+
+                    <com.smart.customviews.SmartEditText
+                        android:id="@+id/etName"
+                        style="@style/edittext_h3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Name"
+                        android:singleLine="true"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white"/>
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@android:color/white"
+                    >
+
+                <com.smart.customviews.SmartEditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Email"
+                    android:padding="15dp"
+                    android:textColorHint="#ffffff"
+                    android:textSize="20dp"/>
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@android:color/white"
+                    >
+
+                <com.smart.customviews.SmartEditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Password"
+                    android:padding="15dp"
+                    android:textColorHint="#ffffff"
+                    android:textSize="20dp"/>
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@android:color/white"
+                    >
+
+                <com.smart.customviews.SmartEditText
+                    android:id="@+id/etConfirmPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Confirm Password"
+                    android:padding="15dp"
+                    android:textColorHint="#ffffff"
+                    android:textSize="20dp"/>
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_weight="40"
+                    android:text="Gender"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:textColor="@color/accent"
+                    android:textSize="@dimen/_15sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <Spinner
+                    android:layout_weight="60"
+                    android:id="@+id/spnGender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></Spinner>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@android:color/white"
+                    >
+
+                <com.smart.customviews.SmartEditText
+                    android:id="@+id/etDateOfBirth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="BirthDate"
+                    android:padding="15dp"
+                    android:textColorHint="#ffffff"
+                    android:textSize="20dp"/>
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@android:color/white"
+                    >
+                <com.smart.customviews.SmartEditText
+                    android:id="@+id/etMobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Mobile Number "
+                    android:padding="15dp"
+                    android:textColorHint="#ffffff"
+                    android:textSize="20dp"/>
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_margin="@dimen/_20sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.smart.customviews.SmartButton
+                    android:id="@+id/btnCancel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/_2sdp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/login_edit_text_back_one"
+                    android:text="Cancel"
+                    android:textColor="@android:color/white"
+                    android:textSize="15dp"/>
+
+                <com.smart.customviews.SmartButton
+                    android:id="@+id/btnRegister"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/_2sdp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/login_edit_text_back_one"
+                    android:text="REgister"
+                    android:textColor="@android:color/white"
+                    android:textSize="15dp"/>
+            </LinearLayout>
         </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_margin="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <com.smart.customviews.SmartEditText
-                android:id="@+id/etFirstName"
-                android:padding="15dp"
-                android:hint="First Name"
-                android:textSize="20dp"
-                android:textColorHint="#ffffff"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <com.smart.customviews.SmartEditText
-                android:id="@+id/etLastName"
-                android:padding="15dp"
-                android:hint="Last Name "
-                android:textSize="20dp"
-                android:textColorHint="#ffffff"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+    </android.support.v4.widget.NestedScrollView>
 
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_margin="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <com.smart.customviews.SmartEditText
-                android:id="@+id/etMobile"
-                android:padding="15dp"
-                android:hint="Mobile Number "
-                android:textSize="20dp"
-                android:textColorHint="#ffffff"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <com.smart.customviews.SmartButton
-                android:id="@+id/btnCancel"
-                android:background="@drawable/login_edit_text_back_one"
-                android:layout_marginLeft="@dimen/_2sdp"
-                android:layout_marginTop="10dp"
-                android:text="Cancel"
-                android:textColor="@android:color/white"
-                android:textSize="15dp"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-            <com.smart.customviews.SmartButton
-                android:id="@+id/btnRegister"
-                android:background="@drawable/login_edit_text_back_one"
-                android:layout_marginLeft="@dimen/_2sdp"
-                android:layout_marginTop="10dp"
-                android:text="REgister"
-                android:textColor="@android:color/white"
-                android:textSize="15dp"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-        </LinearLayout>
-
-
-    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

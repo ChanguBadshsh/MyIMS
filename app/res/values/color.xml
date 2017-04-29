@@ -2,7 +2,7 @@
 
     <color name="primaryColor">#651FFF</color>
     <color name="primaryColorDark">#7C4DFF</color>
-    <color name="accent">#00BCD4</color>
+    <color name="accent">#ffffff</color>
     <color name="windowBgColor">#e8e8e8</color>
     <color name="theme_green">#78bf5e</color>
     <color name="gray_color">#8F94A1</color>

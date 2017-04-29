@@ -2,6 +2,8 @@
 <resources>
 
     <string name="load_component">"Jomsocial"</string>
+
+    <string name="date_format_vbs">yyyy-MM-dd HH:mm:ss</string>
     <string name="date_format">yyyy-MM-dd</string>
     <string name="birth_date_format">dd/MM/yyyy</string>
     <string name="date_time_format">yyyy-MM-dd kk:mm:ss</string>

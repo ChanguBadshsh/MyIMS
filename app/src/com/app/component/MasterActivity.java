@@ -151,7 +151,6 @@ public abstract class MasterActivity extends SmartSuperMaster
 
 
         imageArr.add("R.drawable.dashboard");
-
         navList.add("Dashboard");
         navList.add("Profile");
         navList.add("Rides");
@@ -193,8 +192,7 @@ public abstract class MasterActivity extends SmartSuperMaster
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         try {
-            JSONObject jsonObject= new JSONObject(SmartApplication.REF_SMART_APPLICATION.readSharedPreferences()
-                    .getString(SP_LOGGED_IN_USER_DATA, null));
+            JSONObject jsonObject= new JSONObject(SmartApplication.REF_SMART_APPLICATION.readSharedPreferences().getString(SP_LOGGED_IN_USER_DATA, ""));
             userName=jsonObject.getString("name");
             userImage=jsonObject.getString("image");
 
@@ -307,8 +305,12 @@ public abstract class MasterActivity extends SmartSuperMaster
                 HeaderViewHolder headerHolder = (HeaderViewHolder) viewHolder;
                 try {
                     headerHolder.txtUserName.setText(userName);
-                    aQuery.id(headerHolder.imgUserAvatar).image(userImage,
-                            true, true, getDeviceWidth(), 0);
+                    if(userImage==null||userImage.length()<=0){
+                        headerHolder.imgUserAvatar.setImageDrawable(getResources().getDrawable(R.drawable.dymmy_user_male));
+                    }else {
+                        aQuery.id(headerHolder.imgUserAvatar).image(userImage,
+                                true, true, getDeviceWidth(), 0);
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

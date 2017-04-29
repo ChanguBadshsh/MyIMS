@@ -1,30 +1,23 @@
 package com.app.src;
 
 import android.Manifest;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.provider.Settings;
-import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 import com.app.virtualbuses.Dashboard;
 import com.app.virtualbuses.VirtualBusesLogin;
 import com.smart.framework.SmartApplication;
 import com.smartprime.R;
 import com.smart.caching.SmartCaching;
-import com.smart.framework.AlertMagnatic;
 import com.smart.framework.SmartUtils;
 
 import org.json.JSONException;
@@ -41,7 +34,8 @@ public class SplashActivity extends CoreMaster {
 
     private static final int PERMISSION_CALLBACK_CONSTANT = 100;
     private static final int REQUEST_PERMISSION_SETTING = 101;
-    String[] permissionsRequired = new String[]{Manifest.permission.CAMERA,
+    String[] permissionsRequired = new String[]{
+            Manifest.permission.CAMERA,
             Manifest.permission.ACCESS_FINE_LOCATION,
             Manifest.permission.WRITE_EXTERNAL_STORAGE};
     private boolean sentToSettings = false;

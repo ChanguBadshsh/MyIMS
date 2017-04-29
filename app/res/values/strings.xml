@@ -77,4 +77,6 @@
     <string name="logout">Logout</string>
     <string name="logout_message">Logout Message</string>
     <string name="empty_validation">Cant be Empty</string>
+    <string name="confirm_password">Confirm Password must be same as Password</string>
+    <string name="email_exist">Email Already exist</string>
 </resources>

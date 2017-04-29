@@ -69,6 +69,17 @@
         <activity android:name="com.smart.framework.CrashReportActivity"/>
         <!-- Crash Handler Activity END-->
 
+
+        <activity
+            android:name="com.app.virtualbuses.VirtualBusesRegister"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
         <activity
             android:name="com.app.virtualbuses.VirtualBusesProfile"
             android:label="@string/app_name"
