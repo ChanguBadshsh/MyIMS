@@ -8,12 +8,15 @@ import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
@@ -35,6 +38,7 @@ import com.smart.framework.SmartUtils;
 import com.smart.webservice.SmartWebManager;
 import com.smartprime.R;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -57,9 +61,10 @@ public class VirtualBusesLogin extends Activity {
     private ProfileTracker profileTracker;
     private CallbackManager callbackManager;
     LoginButton loginButton;
-    Button btnGoogle,btnRegister;
+    Button btnGoogle,btnRegister,btnLogin;
     ContentValues profileDetails= new ContentValues();
     Dialog dialog;
+    EditText etUserPassword,etUserName;
 
 
     private FacebookCallback<LoginResult> callback = new FacebookCallback<LoginResult>() {
@@ -94,6 +99,11 @@ public class VirtualBusesLogin extends Activity {
         btnGoogle=(Button)findViewById(R.id.btnGoogle);
         btnRegister=(Button)findViewById(R.id.btnRegister);
 
+        etUserName=(EditText)findViewById(R.id.etUserName);
+        etUserPassword=(EditText)findViewById(R.id.etUserPassword);
+
+        btnLogin=(Button)findViewById(R.id.btnLogin);
+
         callbackManager = CallbackManager.Factory.create();
 
         accessTokenTracker= new AccessTokenTracker() {
@@ -115,6 +125,25 @@ public class VirtualBusesLogin extends Activity {
 
         loginButton.setReadPermissions("user_friends");
         loginButton.registerCallback(callbackManager, callback);
+
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean isValid=true;
+                if(TextUtils.isEmpty(etUserName.getText().toString())){
+                    isValid=false;
+                    etUserName.setError(getString(R.string.empty_validation));
+
+                }else if(TextUtils.isEmpty(etUserPassword.getText().toString())) {
+                    isValid = false;
+                    etUserPassword.setError(getString(R.string.empty_validation));
+                }
+                if(isValid){
+                    authenticateUser(etUserName.getText().toString(),etUserPassword.getText().toString());
+                }
+            }
+        });
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -173,7 +202,7 @@ public class VirtualBusesLogin extends Activity {
                             Log.v("@@@WWe"," date "+registerDate);
 
 
-                            if(object.has("email")){
+//                            if(object.has("email")){
                                 if(object.has("picture")){
                                     profileDetails.put("image_data",object.getJSONObject("picture").getJSONObject("data").getString("url"));
                                     image=object.getJSONObject("picture").getJSONObject("data").getString("url");
@@ -187,31 +216,11 @@ public class VirtualBusesLogin extends Activity {
                                     profileDetails.put("password",object.getString("id"));
                                     password=object.getString("id").toString();
                                 }
-                                profileDetails.put("user_email",object.getString("email"));
-                                email=object.getString("email").toString();
+                              if(object.has("email")){
+                                  profileDetails.put("user_email",object.getString("email"));
+                                  email=object.getString("email").toString();
+                              }
                                 registerUserWithFaceBook(name,password,email,image,registerDate);
-                            }else {
-                                if(object.has("picture")){
-                                    profileDetails.put("image_data",object.getJSONObject("picture").getJSONObject("data").getString("url"));
-                                    image=object.getJSONObject("picture").getJSONObject("data").getString("url");
-                                }
-                                if(object.has("name")){
-                                    profileDetails.put("user_name",object.getString("name"));
-                                    name=object.getString("name").toString();
-                                }
-
-                                if(object.has("id")){
-                                    profileDetails.put("password",object.getString("id"));
-                                    password=object.getString("id").toString();
-                                }
-//                                getUserEmail(name,password,image);
-                                enterEmailDialog(name,password,image,registerDate);
-
-                            }
-
-//                            edtEmail.setText(object.getString("email"));
-//                            edtPassword.setText(object.getString("id"));
-//                            doLogin("1");
 
 
                             //sendMailAndVerify(true);
@@ -365,6 +374,109 @@ public class VirtualBusesLogin extends Activity {
             return false;
         }
 
+    }
+
+    public void authenticateUser(final String email, final String password){
+        SmartUtils.showLoadingDialog(VirtualBusesLogin.this);
+        HashMap<SmartWebManager.REQUEST_METHOD_PARAMS, Object> requestParams = new HashMap<>();
+        requestParams.put(SmartWebManager.REQUEST_METHOD_PARAMS.CONTEXT, VirtualBusesLogin.this);
+        requestParams.put(SmartWebManager.REQUEST_METHOD_PARAMS.REQUEST_TYPES, SmartWebManager.REQUEST_TYPE.JSON_OBJECT);
+        requestParams.put(SmartWebManager.REQUEST_METHOD_PARAMS.TAG, Constants.WEB_REMOVE_WALLORACTIVITIES);
+        requestParams.put(SmartWebManager.REQUEST_METHOD_PARAMS.URL, SmartApplication.REF_SMART_APPLICATION.DOMAIN_NAME);
+        final JSONObject jsonObject = new JSONObject();
+
+        try {
+            jsonObject.put("task", "authorizrUser");
+            JSONObject taskData = new JSONObject();
+            try {
+                taskData.put("password",password);
+                taskData.put("email",email);
+            } catch (Throwable e) {
+            }
+            jsonObject.put("taskData", taskData);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        requestParams.put(SmartWebManager.REQUEST_METHOD_PARAMS.PARAMS, jsonObject);
+        requestParams.put(SmartWebManager.REQUEST_METHOD_PARAMS.RESPONSE_LISTENER, new SmartWebManager.OnResponseReceivedListener() {
+
+            @Override
+            public void onResponseReceived(final JSONObject response, boolean isValidResponse, int responseCode) {
+                if (responseCode == 200) {
+
+                    getUserDetails(email);
+                    SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_ISLOGOUT, false);
+                    final Intent loginIntent= new Intent(VirtualBusesLogin.this,Dashboard.class);
+                    loginIntent.putExtra("IN_EMAIL",email);
+                    Handler handler=new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            startActivity(loginIntent);
+                        }
+                    },4000);
+
+                }else {
+                    SmartUtils.ting(VirtualBusesLogin.this,"Invalid Credentials");
+                }
+                SmartUtils.hideLoadingDialog();
+            }
+
+            @Override
+            public void onResponseError() {
+
+                SmartUtils.hideLoadingDialog();
+            }
+        });
+        SmartWebManager.getInstance(VirtualBusesLogin.this).addToRequestQueueMultipart(requestParams, null, "", false);
+    }
+
+    public void getUserDetails(final String email){
+        SmartUtils.showLoadingDialog(VirtualBusesLogin.this);
+        HashMap<SmartWebManager.REQUEST_METHOD_PARAMS, Object> requestParams = new HashMap<>();
+        requestParams.put(SmartWebManager.REQUEST_METHOD_PARAMS.CONTEXT, VirtualBusesLogin.this);
+        requestParams.put(SmartWebManager.REQUEST_METHOD_PARAMS.REQUEST_TYPES, SmartWebManager.REQUEST_TYPE.JSON_OBJECT);
+        requestParams.put(SmartWebManager.REQUEST_METHOD_PARAMS.TAG, Constants.WEB_REMOVE_WALLORACTIVITIES);
+        requestParams.put(SmartWebManager.REQUEST_METHOD_PARAMS.URL, SmartApplication.REF_SMART_APPLICATION.DOMAIN_NAME);
+        final JSONObject jsonObject = new JSONObject();
+
+        try {
+            jsonObject.put("task", "getUserDetail");
+            JSONObject taskData = new JSONObject();
+            try {
+                taskData.put("email",email);
+            } catch (Throwable e) {
+            }
+            jsonObject.put("taskData", taskData);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        requestParams.put(SmartWebManager.REQUEST_METHOD_PARAMS.PARAMS, jsonObject);
+        requestParams.put(SmartWebManager.REQUEST_METHOD_PARAMS.RESPONSE_LISTENER, new SmartWebManager.OnResponseReceivedListener() {
+
+            @Override
+            public void onResponseReceived(final JSONObject response, boolean isValidResponse, int responseCode) {
+                if (responseCode == 200) {
+
+                    try {
+
+                        JSONArray userData=response.getJSONArray("userData");
+                        JSONObject iObj= userData.getJSONObject(0);
+                        SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_LOGGED_IN_USER_DATA, iObj.toString());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                SmartUtils.hideLoadingDialog();
+            }
+
+            @Override
+            public void onResponseError() {
+
+                SmartUtils.hideLoadingDialog();
+            }
+        });
+        SmartWebManager.getInstance(VirtualBusesLogin.this).addToRequestQueueMultipart(requestParams, null, "", false);
     }
 
 }

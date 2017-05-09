@@ -21,6 +21,7 @@
     <uses-feature
         android:name="android.hardware.telephony"
         android:required="false"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <!-- GOOGLE MAP V2 PERMISSIONS START -->
     <permission
@@ -47,6 +48,9 @@
             </intent-filter>
         </receiver>
 
+        <receiver android:name="com.app.virtualbuses.reveiver.AlarmReceiver">
+        </receiver>
+
         <service
             android:name="com.app.src.FireBaseMessagingService">
             <intent-filter>
@@ -69,6 +73,16 @@
         <activity android:name="com.smart.framework.CrashReportActivity"/>
         <!-- Crash Handler Activity END-->
 
+        <activity
+            android:name="com.app.virtualbuses.VirtualBusesListing"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
 
         <activity
             android:name="com.app.virtualbuses.VirtualBusesRegister"
@@ -102,6 +116,16 @@
         </activity>
         <activity
             android:name="com.app.virtualbuses.VirtualBusesLogin"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.app.virtualbuses.VirtualBusesEditProfile"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
             <intent-filter>

@@ -3067,4 +3067,17 @@ public class SmartUtils implements Constants {
         return dateTime;
     }
 
+    public static String getDateFromTimeStamp(long timeStamp){
+        String dateTime="";
+        SimpleDateFormat df = new SimpleDateFormat("EEE, MMM d, ''yy 'at' HH:mm");
+        Date date = null;
+        try {
+            Date netDate = (new Date(timeStamp));
+            dateTime=df.format(netDate);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return dateTime;
+    }
+
 }

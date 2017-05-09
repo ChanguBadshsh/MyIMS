@@ -37,6 +37,7 @@ import android.widget.Toast;
 
 import com.androidquery.AQuery;
 import com.app.virtualbuses.Dashboard;
+import com.app.virtualbuses.VirtualBusesListing;
 import com.app.virtualbuses.VirtualBusesLogin;
 import com.app.virtualbuses.VirtualBusesProfile;
 import com.facebook.login.LoginManager;
@@ -119,7 +120,7 @@ public abstract class MasterActivity extends SmartSuperMaster
 
     List<String> navList= new ArrayList<>();
     List<String> imageArr=new ArrayList<>();
-    String userName="",userImage="";
+    String userName="",userImage="",gender="";
 
     @Override
     public View getFooterLayoutView() {
@@ -151,6 +152,7 @@ public abstract class MasterActivity extends SmartSuperMaster
 
 
         imageArr.add("R.drawable.dashboard");
+        navList.add("Home");
         navList.add("Dashboard");
         navList.add("Profile");
         navList.add("Rides");
@@ -195,6 +197,7 @@ public abstract class MasterActivity extends SmartSuperMaster
             JSONObject jsonObject= new JSONObject(SmartApplication.REF_SMART_APPLICATION.readSharedPreferences().getString(SP_LOGGED_IN_USER_DATA, ""));
             userName=jsonObject.getString("name");
             userImage=jsonObject.getString("image");
+            gender=jsonObject.getString("gender");
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -306,7 +309,12 @@ public abstract class MasterActivity extends SmartSuperMaster
                 try {
                     headerHolder.txtUserName.setText(userName);
                     if(userImage==null||userImage.length()<=0){
-                        headerHolder.imgUserAvatar.setImageDrawable(getResources().getDrawable(R.drawable.dymmy_user_male));
+                        if(gender.equals("Male")){
+                            headerHolder.imgUserAvatar.setImageDrawable(getResources().getDrawable(R.drawable.dymmy_male));
+                        }else {
+
+                            headerHolder.imgUserAvatar.setImageDrawable(getResources().getDrawable(R.drawable.dymmy_female));
+                        }
                     }else {
                         aQuery.id(headerHolder.imgUserAvatar).image(userImage,
                                 true, true, getDeviceWidth(), 0);
@@ -349,6 +357,13 @@ public abstract class MasterActivity extends SmartSuperMaster
 //                                    SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_ISLOGOUT, true);
 //                                    SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_LOGGED_IN_USER_DATA, null);
                                     Intent intent= new Intent(MasterActivity.this, Dashboard.class);
+                                    startActivity(intent);
+                                }
+                                if(navList.get(position).equals("Routes")){
+//                                    LoginManager.getInstance().logOut();
+//                                    SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_ISLOGOUT, true);
+//                                    SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_LOGGED_IN_USER_DATA, null);
+                                    Intent intent= new Intent(MasterActivity.this, VirtualBusesListing.class);
                                     startActivity(intent);
                                 }
                             } catch (Exception e) {

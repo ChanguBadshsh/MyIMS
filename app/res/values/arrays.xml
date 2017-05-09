@@ -2,6 +2,7 @@
 <resources>
     <array name="menu_icon">
         <item>@drawable/dashboard</item>
+        <item>@drawable/dashboard</item>
         <item>@drawable/profile</item>
         <item>@drawable/rides</item>
         <item>@drawable/routes</item>

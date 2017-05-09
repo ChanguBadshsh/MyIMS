@@ -96,5 +96,7 @@ dependencies {
     compile 'com.androidmapsextensions:android-maps-extensions:2.2.1'
 
     compile 'com.intuit.sdp:sdp-android:1.0.3'
+    compile 'com.yayandroid:ParallaxRecyclerView:1.1'
+    compile 'com.squareup.picasso:picasso:2.5.2'
 
 }

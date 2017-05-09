@@ -30,6 +30,7 @@
             android:layout_height="wrap_content">
 
             <EditText
+                android:id="@+id/etUserName"
                 android:background="@drawable/login_edit_text_back_one"
                 android:layout_marginTop="20dp"
                 android:padding="15dp"
@@ -40,8 +41,8 @@
                 android:layout_height="wrap_content"/>
 
             <EditText
+                android:id="@+id/etUserPassword"
                 android:background="@drawable/login_edit_text_back_one"
-
                 android:layout_marginTop="10dp"
                 android:padding="15dp"
                 android:hint="User Passsword "
@@ -56,6 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <Button
+                    android:id="@+id/btnLogin"
                     android:background="@drawable/login_edit_text_back_one"
                     android:layout_marginLeft="@dimen/_2sdp"
                     android:layout_marginTop="10dp"

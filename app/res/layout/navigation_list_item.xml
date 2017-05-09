@@ -17,7 +17,6 @@
 
             <ImageView
                 android:id="@+id/imgMenuItem"
-                android:src="@drawable/dashboard"
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"/>
 

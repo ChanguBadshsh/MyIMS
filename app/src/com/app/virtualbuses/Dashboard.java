@@ -33,18 +33,27 @@ public class Dashboard extends MasterActivity {
         getIntentData();
 
         Log.v("@@@WWE"," Email:"+IN_EMAIL);
-
-
-
+        JSONObject jsonObject=null;
+        String email="";
         try {
-            JSONObject jsonObject= new JSONObject(SmartApplication.REF_SMART_APPLICATION.readSharedPreferences()
-                    .getString(SP_LOGGED_IN_USER_DATA,""));
-            userEmail=jsonObject.getString("email");
+            if(SmartApplication.REF_SMART_APPLICATION.readSharedPreferences()
+                    .getString(SP_LOGGED_IN_USER_DATA,"")!=null&&SmartApplication.REF_SMART_APPLICATION.readSharedPreferences()
+                    .getString(SP_LOGGED_IN_USER_DATA,"").length()>0){
+                jsonObject= new JSONObject(SmartApplication.REF_SMART_APPLICATION.readSharedPreferences()
+                        .getString(SP_LOGGED_IN_USER_DATA,""));
+            }
+            if(jsonObject!=null){
+                email=jsonObject.getString("email");
+            }
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-
+        if(jsonObject!=null){
+            userEmail=email;
+        }else {
+            userEmail=IN_EMAIL;
+        }
         if(isNetworkConnected()){
             getUserDetails(userEmail);
         }else{
@@ -62,7 +71,7 @@ public class Dashboard extends MasterActivity {
     }
 
     public void getIntentData(){
-        IN_EMAIL=getIntent().getParcelableExtra("IN_EMAIL");
+        IN_EMAIL=getIntent().getStringExtra("IN_EMAIL");
     }
 
     public void getUserDetails(final String email){
