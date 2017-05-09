@@ -1,26 +1,32 @@
 package com.app.virtualbuses.reveiver;
 
-import android.content.BroadcastReceiver;
+import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.media.MediaPlayer;
-import android.media.Ringtone;
-import android.media.RingtoneManager;
-import android.net.Uri;
+import android.os.Vibrator;
 import android.support.v4.content.WakefulBroadcastReceiver;
 import android.util.Log;
 
 /**
- * Created by tasol on 8/5/17.
+ * Created by tasol on 9/5/17.
  */
 
 public class AlarmReceiver extends WakefulBroadcastReceiver {
+
     @Override
-    public void onReceive(Context context, Intent intent) {
-//        MainActivity.getTextView2().setText("Enough Rest. Do Work Now!");
-        Log.v("@@@WWe"," revieved signal ");
-        Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
-        Ringtone ringtone = RingtoneManager.getRingtone(context, uri);
-        ringtone.play();
+    public void onReceive(final Context context, Intent intent) {
+
+        Log.v("@@@WWE", "From Reciever");
+        String msg = intent.getStringExtra("IN_TIME");
+        Log.v("@@@WWE", " Message from Reciever" + msg);
+
+        if(msg.equals("start")){
+            ComponentName comp = new ComponentName(context.getPackageName(),
+                    AlarmService.class.getName());
+            startWakefulService(context, (intent.setComponent(comp)));
+            setResultCode(Activity.RESULT_OK);
+        }
+
     }
 }

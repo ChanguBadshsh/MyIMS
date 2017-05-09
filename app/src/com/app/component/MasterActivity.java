@@ -37,7 +37,7 @@ import android.widget.Toast;
 
 import com.androidquery.AQuery;
 import com.app.virtualbuses.Dashboard;
-import com.app.virtualbuses.VirtualBusesListing;
+import com.app.virtualbuses.VirtualBusesRoutes;
 import com.app.virtualbuses.VirtualBusesLogin;
 import com.app.virtualbuses.VirtualBusesProfile;
 import com.facebook.login.LoginManager;
@@ -363,7 +363,7 @@ public abstract class MasterActivity extends SmartSuperMaster
 //                                    LoginManager.getInstance().logOut();
 //                                    SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_ISLOGOUT, true);
 //                                    SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_LOGGED_IN_USER_DATA, null);
-                                    Intent intent= new Intent(MasterActivity.this, VirtualBusesListing.class);
+                                    Intent intent= new Intent(MasterActivity.this, VirtualBusesRoutes.class);
                                     startActivity(intent);
                                 }
                             } catch (Exception e) {

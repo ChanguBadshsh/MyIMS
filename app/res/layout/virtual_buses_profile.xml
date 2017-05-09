@@ -31,7 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_150sdp">
                 <FrameLayout
-                    android:background="@drawable/login_back"
+                    android:background="@drawable/login_back_nine"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <LinearLayout

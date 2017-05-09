@@ -1,160 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:layout_marginTop="@dimen/_5sdp"
+<android.support.v7.widget.CardView
+    android:orientation="horizontal"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="@android:color/white"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    app:cardElevation="@dimen/_5sdp"
+    android:layout_marginLeft="@dimen/_5sdp"
+    android:layout_marginRight="@dimen/_5sdp"
+    android:layout_marginTop="@dimen/_5sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <LinearLayout
-        android:orientation="vertical"
-        android:id="@+id/lnrListing"
+        android:padding="@dimen/_2sdp"
+        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="60"
+            android:layout_width="@dimen/_0sdp"
+            android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
             <LinearLayout
-                android:layout_weight="1"
-                android:layout_width="@dimen/_0sdp"
+                android:padding="@dimen/_5sdp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <TextView
-                    android:padding="@dimen/_5sdp"
-                    android:textSize="@dimen/_20sdp"
-                    android:text="Bus number"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:padding="@dimen/_5sdp"
-                    android:id="@+id/busNumber"
-                    android:textSize="@dimen/_20sdp"
-                    android:text="12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_weight="1"
-                android:layout_width="@dimen/_0sdp"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:padding="@dimen/_5sdp"
-                    android:textSize="@dimen/_20sdp"
-                    android:text="Line Number"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:padding="@dimen/_5sdp"
-                    android:id="@+id/lineNumber"
-                    android:textSize="@dimen/_20sdp"
-                    android:text="12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_weight="1"
-                android:layout_width="@dimen/_0sdp"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:padding="@dimen/_5sdp"
-                    android:textSize="@dimen/_20sdp"
-                    android:text="Start Station"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:padding="@dimen/_5sdp"
+                <com.smart.customviews.SmartTextView
+                    android:text="Kalupoor"
                     android:id="@+id/startStation"
-                    android:textSize="@dimen/_20sdp"
-                    android:text="ABCD"
+                    android:textSize="@dimen/_15sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_weight="1"
-                android:layout_width="@dimen/_0sdp"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:padding="@dimen/_5sdp"
-                    android:textSize="@dimen/_20sdp"
-                    android:text="End Station"
+                <com.smart.customviews.SmartTextView
+                    android:text=" - "
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
-                <TextView
-                    android:padding="@dimen/_5sdp"
+                <com.smart.customviews.SmartTextView
+                    android:text="Maninagar"
                     android:id="@+id/endStation"
-                    android:textSize="@dimen/_20sdp"
-                    android:text="ABCD"
+                    android:textSize="@dimen/_15sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
             <LinearLayout
-                android:layout_weight="1"
-                android:layout_width="@dimen/_0sdp"
+                android:padding="@dimen/_5sdp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <TextView
-                    android:padding="@dimen/_5sdp"
-                    android:textSize="@dimen/_20sdp"
-                    android:text="Arrival time"
+                <com.smart.customviews.SmartTextView
+                    android:drawableLeft="@drawable/clock"
+                    android:textColor="@color/gray_color"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:text="Estimate Arrival: "
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
-                <TextView
-                    android:padding="@dimen/_5sdp"
+                <com.smart.customviews.SmartTextView
+                    android:text="10:20 AM"
                     android:id="@+id/arrivalTime"
-                    android:textSize="@dimen/_20sdp"
-                    android:text="10: AM"
+                    android:textColor="@color/gray_color"
+                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
-
         </LinearLayout>
+
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:padding="@dimen/_5sdp"
+            android:orientation="vertical"
+            android:layout_weight="40"
+            android:layout_width="@dimen/_0sdp"
             android:layout_height="wrap_content">
             <LinearLayout
-                android:layout_weight="1"
-                android:layout_width="@dimen/_0sdp"
+
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-                <EditText
-                    android:id="@+id/etSettime"
-                    android:textColor="@color/primaryColor"
-                    android:layout_weight="1"
-                    android:layout_width="@dimen/_0sdp"
+                <TextView
+                    android:text="Bus No: "
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
-                <Button
-                    android:layout_weight="1"
-                    android:id="@+id/btnRemind"
-                    android:padding="@dimen/_5sdp"
-                    android:textSize="@dimen/_10sdp"
-                    android:text="Remind"
-                    android:layout_width="@dimen/_0sdp"
+                <TextView
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:id="@+id/busNumber"
+                    android:text="1235"
+                    android:textSize="@dimen/_15sdp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
-                <Button
-                    android:layout_weight="1"
-                    android:id="@+id/btnCancel"
-                    android:padding="@dimen/_5sdp"
-                    android:textSize="@dimen/_10sdp"
-                    android:text="Cancel"
-                    android:background="@android:color/darker_gray"
-                    android:layout_width="@dimen/_0sdp"
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="Remind "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <Switch
+                    android:layout_marginLeft="@dimen/_7sdp"
+                    android:id="@+id/switchRemind"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
         </LinearLayout>
-
-
     </LinearLayout>
-</LinearLayout>
+
+</android.support.v7.widget.CardView>
