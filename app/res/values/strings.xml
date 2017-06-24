@@ -42,6 +42,11 @@
     <string name="select_all">Select All</string>
     <string name="none">None</string>
     <string name="done">Done</string>
+    <string name="sync">Sync</string>
+    <string name="sync_to_web">Sync To Web</string>
+    <string name="sync_from_web">Sync From Web</string>
+    <string name="delete_data">Delete Data</string>
+    <string name="cust_filter">Filter</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="dialog_title_select_image">Image Title</string>
@@ -79,4 +84,5 @@
     <string name="empty_validation">Cant be Empty</string>
     <string name="confirm_password">Confirm Password must be same as Password</string>
     <string name="email_exist">Email Already exist</string>
+    <string name="clear_transaction">clear</string>
 </resources>

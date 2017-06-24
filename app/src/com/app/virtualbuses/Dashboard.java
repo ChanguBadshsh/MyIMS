@@ -1,11 +1,13 @@
 package com.app.virtualbuses;
 
+import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import com.app.component.MasterActivity;
+import com.app.virtualbuses.model.Route;
 import com.smart.framework.Constants;
 import com.smart.framework.SmartApplication;
 import com.smart.framework.SmartUtils;
@@ -16,8 +18,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by tasol on 26/4/17.
@@ -26,6 +30,12 @@ import java.util.HashMap;
 public class Dashboard extends MasterActivity {
     String email;
     String IN_EMAIL,userEmail;
+    List<JSONObject> jObjList= new ArrayList<>();
+    List<JSONArray> jArrayList= new ArrayList<>();
+    List<Route>routeList= new ArrayList<>();
+    Route route;
+    String busID="",start="",end="",start_time="",end_time="";
+    List<Route> listRoute= new ArrayList<>();
 
     @Override
     public void initComponents() {
@@ -59,6 +69,61 @@ public class Dashboard extends MasterActivity {
         }else{
 
         }
+
+        String ids =SmartApplication.REF_SMART_APPLICATION.readSharedPreferences().getString(SP_BUS_IDS,"");
+        final String[] busIds=ids.split(",");
+        ids=ids.replace('[',' ');
+        ids=ids.replace(']',' ');
+        String[] finalID=ids.split(",");
+        for (int i = 0; i < finalID.length; i++) {
+            Log.v("@@@WWe"," "+i+" "+finalID[i]);
+            getAllRoutes(finalID[i]);
+//            routeList.add(route);
+        }
+        Log.v("@@WE"," Array List "+jArrayList);
+
+
+        Handler handler,h2;
+        h2= new Handler();
+        handler= new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Log.v("@@@WWE"," Handler Started");
+                for (int i = 0; i < jArrayList.size(); i++) {
+                    JSONArray arr=jArrayList.get(i);
+                    for (int j = 0; j < arr.length(); j++) {
+                        try {
+                            JSONObject jsonObject1=arr.getJSONObject(j);
+                            if(j==0){
+                                busID=jsonObject1.getString("bus_id");
+                                start=jsonObject1.getString("arrival_time");
+                                start_time=jsonObject1.getString("station");
+                            }
+                            if(j==arr.length()){
+                                start=jsonObject1.getString("departure_time");
+                                start_time=jsonObject1.getString("station");
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        Route route=new Route(busID,start,end_time,start_time,end_time);
+                        listRoute.add(route);
+                    }
+                }
+
+            }
+        },5000);
+
+
+        h2.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Log.v("@@@WWE","Value Obtained");
+                Log.v("@@@WWE"," Route List"+listRoute);
+            }
+        },6000);
+
     }
 
     @Override
@@ -127,6 +192,69 @@ public class Dashboard extends MasterActivity {
 
             @Override
             public void onResponseError() {
+                SmartUtils.hideLoadingDialog();
+            }
+        });
+        SmartWebManager.getInstance(Dashboard.this).addToRequestQueueMultipart(requestParams, null, "", false);
+    }
+
+    public void getAllRoutes(String busIds) {
+        SmartUtils.showLoadingDialog(Dashboard.this);
+        HashMap<SmartWebManager.REQUEST_METHOD_PARAMS, Object> requestParams = new HashMap<>();
+        requestParams.put(SmartWebManager.REQUEST_METHOD_PARAMS.CONTEXT, Dashboard.this);
+        requestParams.put(SmartWebManager.REQUEST_METHOD_PARAMS.REQUEST_TYPES, SmartWebManager.REQUEST_TYPE.JSON_OBJECT);
+        requestParams.put(SmartWebManager.REQUEST_METHOD_PARAMS.TAG, Constants.WEB_REMOVE_WALLORACTIVITIES);
+        requestParams.put(SmartWebManager.REQUEST_METHOD_PARAMS.URL, SmartApplication.REF_SMART_APPLICATION.DOMAIN_NAME);
+        final JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("task","getBusRoutes");
+            JSONObject taskData = new JSONObject();
+            try {
+                taskData.put("bus_ids",busIds);
+            } catch (Throwable e) {
+            }
+            jsonObject.put("taskData", taskData);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        requestParams.put(SmartWebManager.REQUEST_METHOD_PARAMS.PARAMS, jsonObject);
+        requestParams.put(SmartWebManager.REQUEST_METHOD_PARAMS.RESPONSE_LISTENER, new SmartWebManager.OnResponseReceivedListener() {
+
+            @Override
+            public void onResponseReceived(final JSONObject response, boolean isValidResponse, int responseCode) {
+                if (responseCode == 200) {
+                    try {
+                        JSONArray userData = response.getJSONArray("userData");
+                        jArrayList.add(userData);
+                        Log.v("@@@WWE"," Arraylist "+jArrayList);
+//                        for (int i = 0; i < userData.length(); i++) {
+//                            JSONObject jsonObject1=userData.getJSONObject(i);
+//                            jObjList.add(jsonObject1);
+//                        }
+//                        String start="",end="",start_time="",end_time="",busID="";
+//                        for (int i = 0; i < jObjList.size(); i++) {
+//                            if(i==0){
+//                                start=jObjList.get(i).getString("station");
+//                                start_time=jObjList.get(i).getString("arrival_time");
+//                                busID=jObjList.get(i).getString("bus_id");
+//                            }
+//                            if(i==jObjList.size()){
+//                                end=jObjList.get(i).getString("station");
+//                                end_time=jObjList.get(i).getString("departure_time");
+//                            }
+//                        }
+//                        route= new Route(busID,start,end,start_time,end_time);
+//                        Log.v("@@@WWE"," BisID"+busID+" source "+start);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                SmartUtils.hideLoadingDialog();
+            }
+
+            @Override
+            public void onResponseError() {
+
                 SmartUtils.hideLoadingDialog();
             }
         });

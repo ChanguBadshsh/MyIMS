@@ -222,7 +222,7 @@ public abstract class SmartActivity extends AppCompatActivity implements Constan
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        int color = getResources().getColor(R.color.textSecondary);
+        int color = getResources().getColor(R.color.accent);
         MenuColorizer.colorMenu(this, menu, color, 255);
         return super.onCreateOptionsMenu(menu);
     }

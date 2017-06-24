@@ -68,7 +68,8 @@ public class ApplicationConfiguration implements SmartApplicationConfiguration, 
     public String getDomain() {
 
 //        return "http://istage.website/wewe/index.php?option=com_ijoomeradv";//For ISTAGE
-        return "http://virtualbrtservice.96.lt/smart_prime/index.php";//For VBS
+//        return "http://virtualbrtservice.96.lt/smart_prime/index.php";//For VBS
+        return "http://imsapi.96.lt/ims/index.php";//For IMS
 
     }
 

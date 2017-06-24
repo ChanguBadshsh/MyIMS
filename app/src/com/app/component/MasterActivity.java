@@ -36,10 +36,10 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.androidquery.AQuery;
-import com.app.virtualbuses.Dashboard;
-import com.app.virtualbuses.VirtualBusesRoutes;
-import com.app.virtualbuses.VirtualBusesLogin;
-import com.app.virtualbuses.VirtualBusesProfile;
+import com.app.ims.biller.IMSBillerCustomers;
+import com.app.ims.biller.IMSBillerDash;
+import com.app.ims.developer.IMSDeveloperTableList;
+import com.app.src.SplashActivity;
 import com.facebook.login.LoginManager;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -91,6 +91,7 @@ public abstract class MasterActivity extends SmartSuperMaster
     private SmartCaching smartCaching;
     private AQuery aQuery;
     public static boolean streamFlag = false;
+    public String appUserName;
 
     protected GoogleApiClient mGoogleApiClient;
     protected Location mLastLocation;
@@ -98,6 +99,8 @@ public abstract class MasterActivity extends SmartSuperMaster
      * Stores parameters for requests to the FusedLocationProviderApi.
      */
     protected LocationRequest mLocationRequest;
+
+    String userData;
 
     /**
      * Stores the types of location services the client is interested in using. Used for checking
@@ -121,6 +124,7 @@ public abstract class MasterActivity extends SmartSuperMaster
     List<String> navList= new ArrayList<>();
     List<String> imageArr=new ArrayList<>();
     String userName="",userImage="",gender="";
+    List<String>busList= new ArrayList<>();
 
     @Override
     public View getFooterLayoutView() {
@@ -151,14 +155,45 @@ public abstract class MasterActivity extends SmartSuperMaster
         super.onCreate(savedInstanceState);
 
 
-        imageArr.add("R.drawable.dashboard");
-        navList.add("Home");
-        navList.add("Dashboard");
-        navList.add("Profile");
-        navList.add("Rides");
-        navList.add("Routes");
-        navList.add("Offers");
-        navList.add("Logout");
+
+        userData=SmartApplication.REF_SMART_APPLICATION.readSharedPreferences().getString(MYAPPUSERDATA,"");
+        if(userData!=null&&userData.length()>0){
+            try{
+                JSONObject jsonObject=new JSONObject(userData.toString());
+                appUserName=jsonObject.getString("userName");
+                Log.v("@@@WWE"," User Data "+jsonObject.getString("userName"));
+
+
+                if(appUserName.equals("developer")){
+                    imageArr.add("R.drawable.dashboard");
+                    navList.add("Home");
+                    navList.add("Dashboard");
+                    navList.add("Tables");
+                    navList.add("Logout");
+                }
+                if(appUserName.equals("biller")){
+                    imageArr.add("R.drawable.dashboard");
+                    navList.add("Home");
+                    navList.add("Dashboard");
+                    navList.add("Stocks");
+                    navList.add("Customers");
+                    navList.add("Logout");
+                }
+                if(appUserName.equals("admin")){
+                    imageArr.add("R.drawable.dashboard");
+                    navList.add("Home");
+                    navList.add("Dashboard");
+                    navList.add("Stocks");
+                    navList.add("Customers");
+                    navList.add("Logout");
+                }
+            }catch (Exception je){
+                je.printStackTrace();
+            }
+        }
+
+
+
 
         if (checkPlayServices()) {
             buildGoogleApiClient();
@@ -222,6 +257,7 @@ public abstract class MasterActivity extends SmartSuperMaster
                 e.printStackTrace();
             }
         }
+
     }
 
     @Override
@@ -308,16 +344,18 @@ public abstract class MasterActivity extends SmartSuperMaster
                 HeaderViewHolder headerHolder = (HeaderViewHolder) viewHolder;
                 try {
                     headerHolder.txtUserName.setText(userName);
-                    if(userImage==null||userImage.length()<=0){
-                        if(gender.equals("Male")){
-                            headerHolder.imgUserAvatar.setImageDrawable(getResources().getDrawable(R.drawable.dymmy_male));
-                        }else {
 
-                            headerHolder.imgUserAvatar.setImageDrawable(getResources().getDrawable(R.drawable.dymmy_female));
-                        }
-                    }else {
-                        aQuery.id(headerHolder.imgUserAvatar).image(userImage,
-                                true, true, getDeviceWidth(), 0);
+                    if(appUserName.equals("developer")){
+                        headerHolder.txtUserName.setText("Developer Account");
+                        headerHolder.imgUserAvatar.setImageDrawable(getResources().getDrawable(R.drawable.ims_developer));
+                    }
+                    if(appUserName.equals("biller")){
+                        headerHolder.txtUserName.setText("Biller Account");
+                        headerHolder.imgUserAvatar.setImageDrawable(getResources().getDrawable(R.drawable.ims_biller));
+                    }
+                    if(appUserName.equals("admin")){
+                        headerHolder.txtUserName.setText("Admin Account");
+                        headerHolder.imgUserAvatar.setImageDrawable(getResources().getDrawable(R.drawable.ims_admin));
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -339,32 +377,35 @@ public abstract class MasterActivity extends SmartSuperMaster
                             try {
                                 if(navList.get(position).equals("Logout")){
                                     LoginManager.getInstance().logOut();
-                                    SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_ISLOGOUT, true);
+                                    SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_ISLOGIN, "0");
                                     SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_LOGGED_IN_USER_DATA, null);
 
-                                    Intent intent= new Intent(MasterActivity.this, VirtualBusesLogin.class);
+                                    Intent intent= new Intent(MasterActivity.this, SplashActivity.class);
                                     startActivity(intent);
                                 }
-                                if(navList.get(position).equals("Profile")){
-//                                    LoginManager.getInstance().logOut();
-//                                    SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_ISLOGOUT, true);
-//                                    SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_LOGGED_IN_USER_DATA, null);
-                                    Intent intent= new Intent(MasterActivity.this, VirtualBusesProfile.class);
+                                if(navList.get(position).equals("Tables")){
+                                    Intent intent= new Intent(MasterActivity.this, IMSDeveloperTableList.class);
                                     startActivity(intent);
                                 }
-                                if(navList.get(position).equals("Dashboard")){
-//                                    LoginManager.getInstance().logOut();
-//                                    SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_ISLOGOUT, true);
-//                                    SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_LOGGED_IN_USER_DATA, null);
-                                    Intent intent= new Intent(MasterActivity.this, Dashboard.class);
-                                    startActivity(intent);
-                                }
-                                if(navList.get(position).equals("Routes")){
-//                                    LoginManager.getInstance().logOut();
-//                                    SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_ISLOGOUT, true);
-//                                    SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_LOGGED_IN_USER_DATA, null);
-                                    Intent intent= new Intent(MasterActivity.this, VirtualBusesRoutes.class);
-                                    startActivity(intent);
+                                if(appUserName.equals("biller")){
+
+                                    if(navList.get(position).equals("Dashboard")){
+                                        Intent intent= new Intent(MasterActivity.this,IMSBillerDash.class);
+                                        startActivity(intent);
+                                    }
+
+                                    if(navList.get(position).equals("Logout")){
+                                        LoginManager.getInstance().logOut();
+                                        SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_ISLOGIN, "0");
+                                        SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_LOGGED_IN_USER_DATA, null);
+
+                                        Intent intent= new Intent(MasterActivity.this, SplashActivity.class);
+                                        startActivity(intent);
+                                    }
+                                    if(navList.get(position).equals("Customers")){
+                                        Intent intent= new Intent(MasterActivity.this, IMSBillerCustomers.class);
+                                        startActivity(intent);
+                                    }
                                 }
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -540,7 +581,7 @@ public abstract class MasterActivity extends SmartSuperMaster
                             @Override
                             public void onResponseReceived(final JSONObject response, boolean isValidResponse, int responseCode) {
                                 if (responseCode == 200 || responseCode == 400) {
-                                    SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_ISLOGOUT, true);
+                                    SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_ISLOGIN, true);
                                     SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_LOGIN_REQ_OBJECT, null);
 
 //                                    Intent loginIntent = new Intent(SobiproMasterActivity.this, IjoomerLoginActivity.class);
@@ -867,4 +908,5 @@ public abstract class MasterActivity extends SmartSuperMaster
         }
 
     }
+
 }

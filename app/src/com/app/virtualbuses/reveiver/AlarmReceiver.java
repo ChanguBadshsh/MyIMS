@@ -22,10 +22,12 @@ public class AlarmReceiver extends WakefulBroadcastReceiver {
         Log.v("@@@WWE", " Message from Reciever" + msg);
 
         if(msg.equals("start")){
-            ComponentName comp = new ComponentName(context.getPackageName(),
-                    AlarmService.class.getName());
-            startWakefulService(context, (intent.setComponent(comp)));
-            setResultCode(Activity.RESULT_OK);
+//            ComponentName comp = new ComponentName(context.getPackageName(),
+//                    AlarmService.class.getName());
+//            startWakefulService(context, (intent.setComponent(comp)));
+//            setResultCode(Activity.RESULT_OK);
+        }else {
+
         }
 
     }

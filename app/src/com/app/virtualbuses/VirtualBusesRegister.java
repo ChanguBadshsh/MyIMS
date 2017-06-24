@@ -3,41 +3,22 @@ package com.app.virtualbuses;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 
-import com.facebook.AccessToken;
-import com.facebook.AccessTokenTracker;
-import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
-import com.facebook.FacebookSdk;
-import com.facebook.GraphRequest;
-import com.facebook.GraphResponse;
-import com.facebook.Profile;
-import com.facebook.ProfileTracker;
-import com.facebook.login.LoginResult;
-import com.facebook.login.widget.LoginButton;
 import com.smart.customviews.CustomClickListener;
 import com.smart.customviews.SmartButton;
 import com.smart.customviews.SmartEditText;
-import com.smart.customviews.SmartSpinner;
 import com.smart.framework.Constants;
 import com.smart.framework.SmartApplication;
 import com.smart.framework.SmartUtils;
@@ -54,7 +35,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
-import static com.smart.framework.Constants.SP_ISLOGOUT;
+import static com.smart.framework.Constants.SP_ISLOGIN;
 import static com.smart.framework.Constants.SP_LOGGED_IN_USER_DATA;
 
 
@@ -278,7 +259,7 @@ public class VirtualBusesRegister extends Activity {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_ISLOGOUT, false);
+                    SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_ISLOGIN, false);
                     Intent loginIntent= new Intent(VirtualBusesRegister.this,Dashboard.class);
                     loginIntent.putExtra("IN_EMAIL",email);
                     startActivity(loginIntent);

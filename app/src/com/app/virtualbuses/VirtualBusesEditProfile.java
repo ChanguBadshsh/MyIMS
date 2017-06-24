@@ -1,13 +1,6 @@
 package com.app.virtualbuses;
 
-import android.app.Activity;
-import android.app.DatePickerDialog;
-import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
@@ -18,13 +11,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.DatePicker;
 import android.widget.Spinner;
 
 import com.androidquery.AQuery;
 import com.app.component.MasterActivity;
 import com.smart.customviews.CustomClickListener;
-import com.smart.customviews.SmartButton;
 import com.smart.customviews.SmartEditText;
 import com.smart.framework.Constants;
 import com.smart.framework.SmartApplication;
@@ -36,14 +27,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.net.InetAddress;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
-
-import static com.smart.framework.Constants.SP_ISLOGOUT;
-import static com.smart.framework.Constants.SP_LOGGED_IN_USER_DATA;
 
 
 /**

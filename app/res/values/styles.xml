@@ -23,6 +23,9 @@
         <item name="actionMenuTextColor">@color/white</item>
     </style>
 
+    <style name="SmartTextInputLayout" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/primaryColor</item>
+    </style>
     <style name="toolbarTheme" parent="AppTheme">
         <item name="colorControlNormal">@color/textSecondary</item>
     </style>

@@ -21,7 +21,9 @@ public interface Constants {
     String DEFAULT_LANDING_SCREEN = "default_landing_screen";
     String SP_USERNAME = "username";
     String SP_GCM_REGID = "gcmRegId";
-    String SP_ISLOGOUT = "isLoggedOut";
+    String SP_ISLOGIN = "isLoggedIN";
+    String MYAPPUSERDATA = "myAppUserData";
+    String FIRTSTAPPENTRY = "firtstAppEntry";
     String SP_LOGGED_IN_USER_DATA = "loggedInUserData";
     String SP_COOKIES = "Set-Cookie";
     String SP_LOGIN_REQ_OBJECT = "loginReqObject";
@@ -29,6 +31,7 @@ public interface Constants {
     String SP_MESSAGE_NOTIFICATION = "messageNotification";
     String SP_GLOBAL_NOTIFICATION = "globalNotification";
     String SP_CART_COUNT = "cartCount";
+    String SP_BUS_IDS = "bus_ids";
 
     //core caching constants
     String SLIDERS = "sliders";

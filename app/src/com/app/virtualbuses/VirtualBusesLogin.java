@@ -43,12 +43,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.net.InetAddress;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 
-import static com.smart.framework.Constants.SP_ISLOGOUT;
+import static com.smart.framework.Constants.SP_ISLOGIN;
 import static com.smart.framework.Constants.SP_LOGGED_IN_USER_DATA;
 
 
@@ -287,7 +284,7 @@ public class VirtualBusesLogin extends Activity {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_ISLOGOUT, false);
+                    SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_ISLOGIN, false);
                     Intent loginIntent= new Intent(VirtualBusesLogin.this,Dashboard.class);
                     loginIntent.putExtra("IN_EMAIL",email);
                     startActivity(loginIntent);
@@ -405,7 +402,7 @@ public class VirtualBusesLogin extends Activity {
                 if (responseCode == 200) {
 
                     getUserDetails(email);
-                    SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_ISLOGOUT, false);
+                    SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_ISLOGIN, false);
                     final Intent loginIntent= new Intent(VirtualBusesLogin.this,Dashboard.class);
                     loginIntent.putExtra("IN_EMAIL",email);
                     Handler handler=new Handler();

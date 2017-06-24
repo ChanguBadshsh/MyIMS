@@ -1,8 +1,13 @@
 <resources>
 
-    <color name="primaryColor">#651FFF</color>
-    <color name="primaryColorDark">#4A148C</color>
-    <color name="accent">#ffffff</color>
+    <!--<color name="primaryColor">#651FFF</color>-->
+    <!--<color name="primaryColorDark">#4A148C</color>-->
+    <!--<color name="accent">#1565C0</color>-->
+
+    <color name="primaryColor">#FF9800</color>
+    <color name="primaryColorDark">#FF5722</color>
+    <color name="accent">#1565C0</color>
+
     <color name="windowBgColor">#e8e8e8</color>
     <color name="theme_green">#78bf5e</color>
     <color name="gray_color">#8F94A1</color>

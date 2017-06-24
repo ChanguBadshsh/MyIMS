@@ -1,8 +1,6 @@
 package com.smart.webservice;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.text.TextUtils;
 import android.util.Log;
@@ -96,7 +94,7 @@ public class SmartWebManager implements Constants {
                                 } else {
 
                                     //redirect to login page
-                                    SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_ISLOGOUT, true);
+                                    SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_ISLOGIN, true);
                                     SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_LOGIN_REQ_OBJECT, null);
 
 //                                    Intent loginIntent = new Intent((Activity) requestParams.get(REQUEST_METHOD_PARAMS.CONTEXT),
@@ -265,7 +263,7 @@ public class SmartWebManager implements Constants {
                                 } else {
 
                                     //redirect to login page
-                                    SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_ISLOGOUT, true);
+                                    SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_ISLOGIN, true);
                                     SmartApplication.REF_SMART_APPLICATION.writeSharedPreferences(SP_LOGIN_REQ_OBJECT, null);
 
 //                                    Intent loginIntent = new Intent((Activity) requestParams.get(REQUEST_METHOD_PARAMS.CONTEXT),
